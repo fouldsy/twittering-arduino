@@ -1,0 +1,14 @@
+Brad Wells wrote an awesome blog post on twittering from the Arduino via USB.
+You can find his article here - http://wellsb.com/post/5135881420/arduino-to-twitter-over-usb
+I'm not including his Python script as a courtesy, but it's fairly straightforward.
+A little more info is available on a blog post I wrote - http://www.fouldsy.com/2011/05/28/atwittering-arduino-without-an-ethernet-shield/
+
+This script, twitter2arduino.py, monitors a given twitter account for @ mentions
+and will then send data mesages to the Arduino.
+There's a lot of potential uses - the example simply passes the number 1 or 2 to the Arduino which then correspends to calling a certain function within the sketch. Make sure you read my blog post on registering an app at dev.twitter.com to obtain the tokens that you need to add to Python script.
+
+The Arduino sketch itself then monitors for any data being sent to it's serial port, and will then call a couple of functions depending on what it is presented with. You can expand beyond simply using a switch statement to call a given function. This is just an example of how to then have the Arduino process some code based on what you send it via twitter.
+
+Note that the Python scripts sends ASCII characters that will need converting by the Arduino.
+In the sketch, I simply subtract 48, as I'm just sending a 1 or 2 to make it simpler.
+Check http://www.asciitable.com/ for a complete breakdown of converting.
